@@ -1,9 +1,0 @@
-*{text-align: center;}
-.menu{padding-top: 3%; text-align: right;}
-a{color: black; text-decoration: none;}
-p{font-size: 30px;}
-
-/*----------------@media----------------*/
-@media screen and (max-width:768px){
-    .menu{font-size: 20px;}
-}

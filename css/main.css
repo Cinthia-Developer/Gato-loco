@@ -1,12 +1,10 @@
-*{text-align: center;}
-.menu{padding-top: 3%; text-align: right;}
-h1{margin-top: 5%;}
-button{width: 20%;margin: 15% auto; font-size: 25px; padding: 10px;}
-a{color: black; text-decoration: none;}
-
-/*----------------@media----------------*/
-@media screen and (max-width:768px){
-    .menu{font-size: 20px;}
-    h1{margin: 20% auto;}
-    button{width: 60%; margin-top: 20%;}
-}
+*{outline: 1px solid red;}
+section{text-align: center;}
+table{margin: auto;}
+.caja-juego{width: 100%; margin: auto;}
+table td{border: 2px solid black;}
+.cuadro{width: 100px; height: 100px; text-align: center; color: black;}
+table td:first-child{border-left:none;}
+table td:last-child{border-right:none;}
+table tr:first-child td{border-top:none;}
+table tr:last-child td{border-bottom:none;}

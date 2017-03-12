@@ -1,24 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Gato-loco</title>
-    <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    
-</head>
-<body>
-  <div class="container">
-    <div class="menu"><a href="index.html">Inicio</a> | <a href="#">Historial</a></div>
-    <h1>Bienvenido a Gato Loco</h1>
-    <a href="index2.html"><button>Iniciar juego</button></a>
-  </div><!--cierre de container-->
-  
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>Gato-loco</title>
+        <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="fonts/style.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+    <body>
+  <!----------------------- Menú responsive con Bootstrap ----------------------->     
+        <header>
+	        <nav class="navbar navbar-default">
+		        <div class="container">
+			        <div class="navbar-header">
+                       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-menu"></span>
+                        </button>
+                    </div><!--cierre de navbar header-->
+                    
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">Inicio</a></li>
+                            <li><a href="#">Historial</a></li>
+                        </ul>
+                    </div><!--cierre de collapse-->
+                </div><!--cierre de container-->
+            </nav>
+        </header>
+        
+<!----------------------- Primera Pantalla ----------------------->       
+        <section>
+            <div class="container">
+                <h1>Bienvenido a Gato Loco</h1>
+                <button>Iniciar</button>
+            </div><!--cierre de container-->
+        </section>
+        
+<!----------------------- Segunda Pantalla ----------------------->       
+        <section>
+            <div class="container">
+                <label for="">Ingrese el Nombre del Jugador 1</label>
+                <input type="text" placeholder="Nombre"><br>
+                <label for="">Ingrese el Nombre del Jugador 2</label>
+                <input type="text" placeholder="Nombre"><br>
+                <button>Comenzar</button>
+            </div><!--cierre de container-->
+        </section>
+
+<!----------------------- Tercera Pantalla ----------------------->       
+        <section>
+            <div class="container">
+                <h2>Turno de <span>jugador</span></h2>
+                <div class="caja-juego">
+                    <table>
+                        <tr>
+                            <td id="s1" class="cuadro"> </td>
+                            <td id="s2" class="cuadro"> </td>
+                            <td id="s3" class="cuadro"> </td>
+                        </tr>
+                        <tr>
+                            <td id="s4" class="cuadro"> </td>
+                            <td id="s5" class="cuadro"> </td>
+                            <td id="s6" class="cuadro"> </td>
+                        </tr>
+                        <tr>
+                            <td id="s7" class="cuadro"> </td>
+                            <td id="s8" class="cuadro"></td>
+                            <td id="s9" class="cuadro"> </td>
+                        </tr>
+                    </table>
+                </div><!--cierre de caja-juego-->
+                        
+                <p>Movimientos <small>Jugador1</small>: <span>0</span></p>
+                <p>Movimientos <small>Jugador2</small>: <span>0</span></p>
+            </div><!--cierre de container-->
+        </section>
+        
+<!----------------------- Cuarta Pantalla ----------------------->       
+        <section>
+            <div class="container">
+                <h2>Turno de <span>jugador</span></h2>
+                <div class="caja-juego">
+                    <table>
+                        <tr>
+                            <td id="uno" class="cuadro"> </td>
+                            <td id="dos" class="cuadro"> </td>
+                            <td id="tres" class="cuadro"> </td>
+                        </tr>
+                        <tr>
+                            <td id="cuatro" class="cuadro"> </td>
+                            <td id="cinco" class="cuadro"> </td>
+                            <td id="seis" class="cuadro"> </td>
+                        </tr>
+                        <tr>
+                            <td id="siete" class="cuadro"> </td>
+                            <td id="ocho" class="cuadro"></td>
+                            <td id="nueve" class="cuadro"> </td>
+                        </tr>
+                    </table>
+                </div><!--cierre de caja-juego-->
+                        
+                <p>Movimientos <small>Jugador1</small>: <span>0</span></p>
+                <p>Movimientos <small>Jugador2</small>: <span>0</span></p>
+                
+                <div class="col-md-6">
+                    <h2>Gano <span>Ganador</span>!!</h2>
+                </div><!--cierre de la primera columna-->
+                <div class="col-md-6">
+                    <button>Mandar al Historial</button>
+                </div><!--cierre de la segunda columna-->
+            </div><!--cierre de container-->
+        </section>
+
+<!----------------------- Quinta Pantalla ----------------------->       
+        <section>
+            
+        </section>
+        
+<!----------------------- Sexta Pantalla ----------------------->       
+        <section>
+            
+        </section>
+
 <!----------------Scripts---->  
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-   <script src="js/bootstrap.min.js"></script> 
-   <script src="js/main.js"></script>
-</body>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+       <script src="js/bootstrap.min.js"></script> 
+       <script src="js/main.js"></script>
+    </body>
 </html>
