@@ -4,13 +4,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <title>Gato-loco</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="fonts/style.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
 
     </head>
-    <body>
+    <body onload="init()">
   <!----------------------- Menú responsive con Bootstrap ----------------------->     
         <header>
 	        <nav class="navbar navbar-default">
@@ -25,8 +26,8 @@
                     
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#">Inicio</a></li>
-                            <li><a href="#">Historial</a></li>
+                            <li><a href="#inicio">Inicio</a></li>
+                            <li><a href="#historial">Historial</a></li>
                         </ul>
                     </div><!--cierre de collapse-->
                 </div><!--cierre de container-->
@@ -34,27 +35,27 @@
         </header>
         
 <!----------------------- Primera Pantalla ----------------------->       
-        <section id="inicio">
-            <div class="container">
+        <section id="inicio" class="visible">
+            <div class="container content">
                 <h1>Bienvenido a Gato Loco</h1>
-                <button>Iniciar</button>
+                <button class="boton-inicio">Iniciar</button>
             </div><!--cierre de container-->
         </section>
         
 <!----------------------- Segunda Pantalla ----------------------->       
         <section id="datos">
-            <div class="container">
+            <div class="container content">
                 <label for="">Ingrese el Nombre del Jugador 1</label>
                 <input type="text" placeholder="Nombre"><br>
                 <label for="">Ingrese el Nombre del Jugador 2</label>
                 <input type="text" placeholder="Nombre"><br>
-                <button>Comenzar</button>
+                <button class="boton-datos">Comenzar</button>
             </div><!--cierre de container-->
         </section>
 
 <!----------------------- Tercera Pantalla ----------------------->       
         <section id="juego">
-            <div class="container">
+            <div class="container content">
                 <h2>Turno de <span>jugador</span></h2>
                 <div class="caja-juego">
                     <table>
@@ -78,12 +79,13 @@
                         
                 <p>Movimientos <small>Jugador1</small>: <span>0</span></p>
                 <p>Movimientos <small>Jugador2</small>: <span>0</span></p>
+                <button class="boton-juego">resultados</button>
             </div><!--cierre de container-->
         </section>
         
 <!----------------------- Cuarta Pantalla ----------------------->       
         <section id="resultados">
-            <div class="container">
+            <div class="container content">
                 <h2>Turno de <span>jugador</span></h2>
                 <div class="caja-juego">
                     <table>
@@ -112,39 +114,41 @@
                     <h2>Gano <span>Ganador</span>!!</h2>
                 </div><!--cierre de la primera columna-->
                 <div class="col-md-6">
-                    <button>Mandar al Historial</button>
+                    <button class="boton-resultados">Mandar al Historial</button>
                 </div><!--cierre de la segunda columna-->
             </div><!--cierre de container-->
         </section>
 
 <!----------------------- Quinta Pantalla ----------------------->       
         <section id="historial">
-            <div class="container">
+            <div class="container content">
                 <h2>Historial</h2>
-                <div class="primero">
-                    <p><span>ganador</span> le gano a <span>perdedor</span> en <span>5</span> movimientos</p>
-                    <p class="rigth"><a href="#">Comentar</a></p>
-                </div><!--cierre de primero-->
-                <div class="segundo">
-                    <p><span>ganador</span> le gano a <span>perdedor</span> en <span>5</span>Movimientos</p>
-                    <p class="rigth"><a href="#">Comentar</a></p>
-                </div><!--cierre de segundo-->
+                <ul>
+                    <li>
+                        <p><span>ganador</span> le gano a <span>perdedor</span> en <span>5</span> movimientos</p>
+                        <p class="rigth boton-historial"><a href="#">Comentar</a></p>
+                    </li><!--cierre de primero-->
+                    <li>
+                        <p><span>ganador</span> le gano a <span>perdedor</span> en <span>5</span>Movimientos</p>
+                        <p class="rigth boton-historial"><a href="#">Comentar</a></p>
+                    </li><!--cierre de segundo-->
+                </ul>
             </div><!--cierre de container-->
         </section>
         
 <!----------------------- Sexta Pantalla ----------------------->       
         <section id="comentarios">
-            <div class="container">
-                <h3>" <span>ganador</span> le gano a <span>perdedor en <span>0</span> movimientos</span>"</h3>
-                <p>Comentarios</p>
-                <div class="text-left">
-                    <p>Blanca dice:</p>
-                    <small>LOL</small>
-                </div>
-                <div class="text-left">
-                    <p>Andrea dice:</p>
-                    <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum repellat quasi sequi sunt maiores sint provident reiciendis ipsa fugiat quas autem ad, sit ratione voluptatibus animi aspernatur distinctio similique fuga.</small>
-                </div>
+            <div class="container content">
+                <h5>"<span>ganador</span> le gano a <span>perdedor en <span>0</span> movimientos</span>"</h5>
+                <h3>Comentarios</h3>
+                <ul class="text-left">
+                    <li>
+                        <h4>Blanca dice: <br><small>LOL</small</h4>
+                    </li><!--cierre de primero-->
+                    <li>
+                        <h4>Andrea dice: <br><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium dolorum, quia vero doloribus delectus assumenda iure libero quasi id quisquam. Recusandae omnis doloremque odio eos suscipit labore, perferendis illum libero!</small</h4>
+                    </li><!--cierre de segundo-->
+                </ul>
                 <h3>Agregar Comentario</h3>
                 <label for="">Tu Nombre</label>
                 <input type="text" placeholder="Nombre"><br>
@@ -155,7 +159,6 @@
         </section>
 
 <!----------------Scripts---->  
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
        <script src="js/bootstrap.min.js"></script> 
        <script src="js/main.js"></script>
     </body>
