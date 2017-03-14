@@ -46,9 +46,9 @@
         <section id="datos">
             <div class="container content">
                 <label for="">Ingrese el Nombre del Jugador 1</label>
-                <input type="text" placeholder="Nombre"><br>
+                <input type="text" placeholder="Nombre" id="jugadorUno"><br>
                 <label for="">Ingrese el Nombre del Jugador 2</label>
-                <input type="text" placeholder="Nombre"><br>
+                <input type="text" placeholder="Nombre" id="jugadorDos"><br>
                 <button class="boton-datos">Comenzar</button>
             </div><!--cierre de container-->
         </section>
@@ -56,29 +56,29 @@
 <!----------------------- Tercera Pantalla ----------------------->       
         <section id="juego">
             <div class="container content">
-                <h2>Turno de <span>jugador</span></h2>
+                <h2 id="juga">Turno de</h2>
                 <div class="caja-juego">
                     <table>
                         <tr>
-                            <td id="uno" class="cuadro"> </td>
-                            <td id="dos" class="cuadro"> </td>
-                            <td id="tres" class="cuadro"> </td>
+                            <td id="c1" class="gato"> </td>
+                            <td id="c2" class="gato"> </td>
+                            <td id="c3" class="gato"> </td>
                         </tr>
                         <tr>
-                            <td id="cuatro" class="cuadro"> </td>
-                            <td id="cinco" class="cuadro"> </td>
-                            <td id="seis" class="cuadro"> </td>
+                            <td id="c4" class="gato"> </td>
+                            <td id="c5" class="gato"> </td>
+                            <td id="c6" class="gato"> </td>
                         </tr>
                         <tr>
-                            <td id="siete" class="cuadro"> </td>
-                            <td id="ocho" class="cuadro"></td>
-                            <td id="nueve" class="cuadro"> </td>
+                            <td id="c7" class="gato"> </td>
+                            <td id="c8" class="gato"></td>
+                            <td id="c9" class="gato"> </td>
                         </tr>
                     </table>
                 </div><!--cierre de caja-juego-->
                         
-                <p>Movimientos <small>Jugador1</small>: <span>0</span></p>
-                <p>Movimientos <small>Jugador2</small>: <span>0</span></p>
+                <p>Movimientos <small class="one">Jugador1</small>: <span class="cont1">0</span></p>
+                <p>Movimientos <small class="two">Jugador2</small>: <span class="cont2">0</span></p>
                 <button class="boton-juego">resultados</button>
             </div><!--cierre de container-->
         </section>
@@ -86,23 +86,23 @@
 <!----------------------- Cuarta Pantalla ----------------------->       
         <section id="resultados">
             <div class="container content">
-                <h2>Turno de <span>jugador</span></h2>
+                <h2 id="jugando">Turno de jugador</h2>
                 <div class="caja-juego">
                     <table>
                         <tr>
-                            <td id="uno" class="cuadro"> </td>
-                            <td id="dos" class="cuadro"> </td>
-                            <td id="tres" class="cuadro"> </td>
+                            <td id="c1" class="gato"> </td>
+                            <td id="c2" class="gato"> </td>
+                            <td id="c3" class="gato"> </td>
                         </tr>
                         <tr>
-                            <td id="cuatro" class="cuadro"> </td>
-                            <td id="cinco" class="cuadro"> </td>
-                            <td id="seis" class="cuadro"> </td>
+                            <td id="c4" class="gato"> </td>
+                            <td id="c5" class="gato"> </td>
+                            <td id="c6" class="gato"> </td>
                         </tr>
                         <tr>
-                            <td id="siete" class="cuadro"> </td>
-                            <td id="ocho" class="cuadro"></td>
-                            <td id="nueve" class="cuadro"> </td>
+                            <td id="c7" class="gato"> </td>
+                            <td id="c8" class="gato"></td>
+                            <td id="c9" class="gato"> </td>
                         </tr>
                     </table>
                 </div><!--cierre de caja-juego-->
