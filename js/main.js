@@ -73,14 +73,14 @@ function dibujarComentarios(_datos){
 	var list = $('#lista-comentarios');
     list.empty();
 	for(var i in _datos){
-		var newElement = '<li class="list-group-item">'+_datos[i].name+' dice: <p>'+ _datos[i].content +'</p></li>';
+		var newElement = '<li class="list-group-item"><h4><b>*'+_datos[i].name+' dice: </b></h4>'+ _datos[i].content +'</li>';
 		list.append(newElement);
 	}
 }
 function dibujarHistorial(_datos){
 	var list = $('#lista-juegos');
     for(var i in _datos){
-        var newElement = '<li data-idgame="'+ _datos[i].id +'" class="list-group-item"><button class="btn">Comentar</button>  ' + _datos[i].winner_player + ' le gano a '+ _datos[i].loser_player +' en ' + _datos[i].number_of_turns_to_win + ' movimientos</li>';
+        var newElement = '<li data-idgame="'+ _datos[i].id +'" class="list-group-item">' + _datos[i].winner_player + ' le gano a '+ _datos[i].loser_player +' en ' + _datos[i].number_of_turns_to_win + ' movimientos <br><button class="btn">Comentar</button>  </li>';
 		list.append(newElement);
 	}
 }
@@ -96,9 +96,9 @@ function enviarComentario(_idGame, _name, _content){
 }
 
 //-------------------------- Sección para el juego de gato loco ----------------------------
-//variables globales 
+//variables globales--
 var jugador1= $("#jugadorUno").val(); 
-var jugador2 = $("#jugadorDos").val(); 
+var jugador2 = $("#jugadorDos").val();
 var turno = 1;
 var cont1 = 0; 
 var cont2 = 0;
@@ -141,7 +141,7 @@ function dibujar(evento){
     if (cont1 >= 3 && cont1 <=9){ 
         ganador(); 
     } 
-    if(cont1 >= 9 && gana == false || cont2 >= 9 && gana == false){ 
+    if(cont1 >= 9 && gana == false){ 
         $("#juga").html("Empate.!!");
         cont1 ++;
         cont2 ++;
@@ -175,9 +175,7 @@ function ganador(){
         $(".one").html("<small>" + jugador1 + "</small>");
         $(".cont1").html("<span>" + cont2 + "</span>");
         turno = 3; 
-        gana = true; 
+        gana = true;
     }
 }
-// falta  empate
 //--- falta enviar al servidor
-//-- falta diseño

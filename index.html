@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <title>Gato-loco</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Gloria+Hallelujah" rel="stylesheet">
         <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="fonts/style.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -56,8 +57,8 @@
 <!----------------------- Tercera Pantalla ----------------------->       
         <section id="juego">
             <div class="container margin">
-                <h2>Estas jugando el Gato Loco</h2>
-                <h2 id="juga">Turno de</h2>
+                <h2>Gato Loco</h2>
+                <h3 id="juga">Turno de</h3><br> 
                 <div class="caja-juego">
                     <table>
                         <tr>
@@ -76,8 +77,8 @@
                             <td id="c9" class="gato"> </td>
                         </tr>
                     </table>
-                </div><!--cierre de caja-juego-->
-                        
+                </div><!--cierre de <caja-juego--><br> 
+                <h3 id="jugador-uno"></h3>    
                 <p>Movimientos <small class="one"></small>: <span class="cont1">0</span></p>
                 <button class="boton-juego">Mandar al historial</button>
             </div><!--cierre de container-->
@@ -94,14 +95,14 @@
 <!----------------------- Quinta Pantalla ----------------------->       
         <section id="comentarios">
             <div class="container margin">
-                <h3>Comentarios</h3>
+                <h2>Comentarios</h2><br>
                 <ul class="text-left" id="lista-comentarios">
                 </ul>
-                <h3>Agregar Comentario</h3>
+                <h2>Agregar Comentario</h2><br>
                 <label for="">Tu Nombre</label>
                 <input id="nombre" type="text" class="form-control" placeholder="Nombre">
                 <label for="">Tu Comentario</label>
-			    <textarea name="content" id="comentario" cols="30" rows="10" class="form-control" placeholder="Comentario"></textarea>
+			    <textarea name="content" id="comentario" cols="30" rows="10" class="form-control" placeholder="Comentario"></textarea><br>
                 <button class="boton-enviar">Enviar</button>
             </div><!--cierre de container-->
         </section>
