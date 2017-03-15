@@ -13,12 +13,14 @@ function init(){
 }
 //-- Funciones para cuando se de click pase a la siguiente pantalla ----
 function onClickIniciOne(){
-	nextSection('inicio');
+    location.reload();
 }
 function onClickInicio(){
 	nextSection('datos');
 }
 function onClickDatos(){
+    jugador1= $("#jugadorUno").val(); 
+    jugador2 = $("#jugadorDos").val();
 	nextSection('juego');
 }
 function onClickHistorial(evt){
@@ -75,6 +77,8 @@ function dibujarComentarios(_datos){
 	for(var i in _datos){
 		var newElement = '<li class="list-group-item"><h4><b>*'+_datos[i].name+' dice: </b></h4>'+ _datos[i].content +'</li>';
 		list.append(newElement);
+        $("#nombre").val("");
+        $("#comentario").val("");
 	}
 }
 function dibujarHistorial(_datos){
@@ -121,7 +125,7 @@ function dibujar(evento){
         }else{ 
             this.innerHTML = "X"; 
             this.style.background="#7dcd40"; 
-            $("#juga").html("<small>Turno de " + jugador1 + "</small>"); 
+            $("#juga").html("<span>Turno de: " + jugador1 + "</span>"); 
             tablero[posicion]="X"; 
             turno = 2;
             cont1 ++;
@@ -131,7 +135,7 @@ function dibujar(evento){
         }else{ 
             this.innerHTML = "O"; 
             this.style.background="#ff4842"; 
-            $("#juga").html("<small>Turno de: " + jugador2 + "</small>");
+            $("#juga").html("<span>Turno de: " + jugador2 + "</span>");
             tablero[posicion]="O"; 
             turno = 1; 
             cont2 ++; 
@@ -158,8 +162,8 @@ function ganador(){
      (tablero[2]=="X" && tablero[5]=="X" && tablero[8]=="X") || 
      (tablero[0]=="X" && tablero[4]=="X" && tablero[8]=="X") || 
      (tablero[2]=="X" && tablero[4]=="X" && tablero[6]=="X")) { 
-        $("#juga").html("<h3>Ganó " + jugador2 + "</h3>");
-        $(".one").html("<small>" + jugador2 + "</small>");
+        $("#juga").html("<h2>Ganó <span class='super-ganador'>" + jugador2 + "</span></h2>");
+        $(".one").html("<span>" + jugador2 + "</span>");
         $(".cont1").html("<span>" + cont1 + "</span>");
         turno = 3; 
         gana = true; 
@@ -171,8 +175,8 @@ function ganador(){
      (tablero[2]=="O" && tablero[5]=="O" && tablero[8]=="O") || 
      (tablero[0]=="O" && tablero[4]=="O" && tablero[8]=="O") || 
      (tablero[2]=="O" && tablero[4]=="O" && tablero[6]=="O")) { 
-        $("#juga").html("<h3>Ganó " + jugador1 + "</h3>");
-        $(".one").html("<small>" + jugador1 + "</small>");
+        $("#juga").html("<h2 class='gano'>Ganó <span class='super-ganador'>" + jugador1 + "</span></h2>");
+        $(".one").html("<span>" + jugador1 + "</span>");
         $(".cont1").html("<span>" + cont2 + "</span>");
         turno = 3; 
         gana = true;

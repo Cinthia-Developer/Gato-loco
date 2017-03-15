@@ -8,7 +8,12 @@ h3{font-size: 25px;}
 h4{font-size: 20px;}
 .visible{opacity:1; display: table;}
 .content{display:table-cell; vertical-align: middle;}
-.margin{margin-top: 60px;}
+.margin{margin-top: 70px;}
+/*-------------------------- Menú --------------------------*/
+header img{display: inline; width: 50px; margin: 10px}
+header h3{display: inline;}
+header li{font-size: 20px; margin-top:7px;}
+header li:hover{background: #f15f60; font-size: 30px;}
 /*-------------------------- Primera Pantalla --------------------------*/
 #inicio h1{margin-bottom: 10%;}
 /*-------------------------- Segunda Pantalla --------------------------*/
@@ -17,10 +22,12 @@ input{margin: 5px auto 20px; width: 250px; border: 2px solid #bec0c1; border-rad
 .caja-juego{width: 100%; margin: auto;}
 table{margin: auto;}
 table td{border: 2px solid black;}
+/*-- Para los bordes del cuadro --
 table td:first-child{border-left:none;}
 table td:last-child{border-right:none;}
 table tr:first-child td{border-top:none;}
 table tr:last-child td{border-bottom:none;}
+--*/
 .gato{width: 80px; height: 80px; text-align: center; color: black;}
 /*-------------------------- Cuarta Pantalla --------------------------*/
 ul{list-style: none; padding-left: 0;}
