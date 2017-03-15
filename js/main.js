@@ -5,7 +5,7 @@ function init(){
 	currentSection = $('#inicio');
 	$('.boton-inicio').click(onClickInicio);
     $('.boton-datos').click(onClickDatos);
-    $('.boton-juego').click(onClickHistorial);
+    $('.boton-juego').click(onClickCreateNewPlayer);
     $('.boton-historial').click(onClickHistorial);
     $('.boton-iniciOne').click(onClickIniciOne);
     $('.boton-enviar').click(onClickSubmitComentario);
@@ -30,6 +30,9 @@ function onClickHistorial(evt){
 }
 function onClickSubmitComentario(){
 	enviarComentario(gameId, $('#nombre').val(), $('#comentario').val());
+}
+function onClickCreateNewPlayer(){
+    enviarJuego($(".super-ganador").text(), $(".two").text(), $('.cont1').text());
 }
 function onClickComentar(){
 	var idGame = $(this).parent().data('idgame');
@@ -98,6 +101,19 @@ function enviarComentario(_idGame, _name, _content){
 		getComentarios(_idGame);
 	});
 }
+function enviarJuego(_superGanador, _superPerdedor, _movimientosGanador){
+	$.ajax({
+		url:'http://test-ta.herokuapp.com/games',
+		type:'POST',
+		data:{game: {
+    winner_player: _superGanador,
+    loser_player: _superPerdedor,
+    number_of_turns_to_win: _movimientosGanador
+  }}
+	}).done(function(_data){
+		console.log(_data);
+	});
+}
 
 //-------------------------- Sección para el juego de gato loco ----------------------------
 //variables globales--
@@ -164,6 +180,7 @@ function ganador(){
      (tablero[2]=="X" && tablero[4]=="X" && tablero[6]=="X")) { 
         $("#juga").html("<h2>Ganó <span class='super-ganador'>" + jugador2 + "</span></h2>");
         $(".one").html("<span>" + jugador2 + "</span>");
+        $(".two").html("<span>" + jugador1 + "</span>");
         $(".cont1").html("<span>" + cont1 + "</span>");
         turno = 3; 
         gana = true; 
@@ -177,6 +194,7 @@ function ganador(){
      (tablero[2]=="O" && tablero[4]=="O" && tablero[6]=="O")) { 
         $("#juga").html("<h2 class='gano'>Ganó <span class='super-ganador'>" + jugador1 + "</span></h2>");
         $(".one").html("<span>" + jugador1 + "</span>");
+        $(".two").html("<span>" + jugador2 + "</span>");
         $(".cont1").html("<span>" + cont2 + "</span>");
         turno = 3; 
         gana = true;
