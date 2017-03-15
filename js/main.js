@@ -1,45 +1,101 @@
 var currentSection = null;
-
+var gameId;
+//-- Funcion Init() -----
 function init(){
 	currentSection = $('#inicio');
 	$('.boton-inicio').click(onClickInicio);
     $('.boton-datos').click(onClickDatos);
-    $('.boton-juego').click(onClickResultados);
-    $('.boton-resultados').click(onClickHistorial);
-    $('.menu-historial').click(onClickHistori);
-    $('#lista-juegos').on("click", "button", onclickggg);
+    $('.boton-juego').click(onClickHistorial);
+    $('.boton-historial').click(onClickHistorial);
+    $('.boton-iniciOne').click(onClickIniciOne);
+    $('.boton-enviar').click(onClickSubmitComentario);
+    $('#lista-juegos').on("click", "button", onClickComentar);
 }
-function onclickggg(){
-    var idgame=$(this).parent().data("idgame");
-    console.log(idgame);
-  game(idgame);
+//-- Funciones para cuando se de click pase a la siguiente pantalla ----
+function onClickIniciOne(){
+	nextSection('inicio');
 }
-//-- Funciones para cuando se de click pasa a la siguiente pantalla --
 function onClickInicio(){
-	gotoSection('datos');
+	nextSection('datos');
 }
 function onClickDatos(){
-	gotoSection('juego');
+	nextSection('juego');
 }
-function onClickResultados(){
-	gotoSection('resultados');
-}
-function onClickHistorial(){
-	gotoSection('historial');
-}
-function onClickHistori(evt){
+function onClickHistorial(evt){
     evt.preventDefault();
-	gotoSection('historial');
+	nextSection('historial');
     getHistorial();
 }
-//-- Función que elimina la clase Visible y crea otra para la siguiente pantalla --
-function gotoSection(_id){
-	currentSection.removeClass('visible');
-	var nextSection = $('#'+_id);
-    nextSection.addClass('visible');
-    currentSection = nextSection;
+function onClickSubmitComentario(){
+	enviarComentario(gameId, $('#nombre').val(), $('#comentario').val());
 }
-//--------------------------------------------
+function onClickComentar(){
+	var idGame = $(this).parent().data('idgame');
+	nextSection('comentarios');
+	getComentarios(idGame);
+	gameId = idGame;
+    getSingleGame(idGame);
+}
+//-- Función que elimina .visible y crea otra para pasar a la siguiente pantalla ----
+function nextSection(_id){
+	currentSection.removeClass('visible');
+	var idNextSection = $('#'+_id);
+    idNextSection.addClass('visible');
+    currentSection = idNextSection;
+}
+
+//----------------- Sección de funciones que solicitan información al API ------------------
+function getHistorial(){
+	$.ajax({
+		url: 'http://test-ta.herokuapp.com/games'
+	}).done(function(_data){
+		dibujarHistorial(_data);
+	});
+}
+function getComentarios(_IdNewGame){
+	$.ajax({
+		url: 'http://test-ta.herokuapp.com/games/'+_IdNewGame+'/comments',
+		type:'GET'
+	}).done(function(_data){
+		dibujarComentarios(_data);
+        
+	});
+}
+function getSingleGame(_IdNewGame){
+	$.ajax({
+		url: 'http://test-ta.herokuapp.com/games/' + _IdNewGame,
+		type:'GET'
+	}).done(function(_data){
+	});
+}
+//-------------- Funciones para dibujar  historial y comentarios ----
+function dibujarComentarios(_datos){
+	var list = $('#lista-comentarios');
+    list.empty();
+	for(var i in _datos){
+		var newElement = '<li class="list-group-item">'+_datos[i].name+' dice: <p>'+ _datos[i].content +'</p></li>';
+		list.append(newElement);
+	}
+}
+function dibujarHistorial(_datos){
+	var list = $('#lista-juegos');
+    for(var i in _datos){
+        var newElement = '<li data-idgame="'+ _datos[i].id +'" class="list-group-item"><button class="btn">Comentar</button>  ' + _datos[i].winner_player + ' le gano a '+ _datos[i].loser_player +' en ' + _datos[i].number_of_turns_to_win + ' movimientos</li>';
+		list.append(newElement);
+	}
+}
+//-------------- Función para enviar el comentario al API ----
+function enviarComentario(_idGame, _name, _content){
+	$.ajax({
+		url:'http://test-ta.herokuapp.com/games/'+_idGame+'/comments',
+		type:'POST',
+		data:{comment:{ name:_name, content:_content, game_id:_idGame }}
+	}).done(function(_data){
+		getComentarios(_idGame);
+	});
+}
+
+//-------------------------- Sección para el juego de gato loco ----------------------------
 //variables globales 
 var jugador1= $("#jugadorUno").val(); 
 var jugador2 = $("#jugadorDos").val(); 
@@ -50,7 +106,7 @@ var n = 0;
 var posicion;
 var gana = false;
 //----------------------- Que jugador comienza ---- 
-$("#juga").html(jugador2);
+$("#juga").html("Empieza " + jugador2);
 //----------------------- Obtener los elementos de las celdas de la tabla ------
     var tablero = new Array(9);
     for (var i = 0;i < 9;i++){ 
@@ -65,7 +121,7 @@ function dibujar(evento){
         }else{ 
             this.innerHTML = "X"; 
             this.style.background="#7dcd40"; 
-            $("#juga, .one").html("<small>" + jugador2 + "</small>"); 
+            $("#juga").html("<small>Turno de " + jugador1 + "</small>"); 
             tablero[posicion]="X"; 
             turno = 2;
             cont1 ++;
@@ -75,23 +131,22 @@ function dibujar(evento){
         }else{ 
             this.innerHTML = "O"; 
             this.style.background="#ff4842"; 
-            $("#juga, .two").html("<small>" + jugador1 + "</small>");
+            $("#juga").html("<small>Turno de: " + jugador2 + "</small>");
             tablero[posicion]="O"; 
             turno = 1; 
             cont2 ++; 
         } 
     } 
-    //llamar a funcion  ganador 
-    if (cont1 >= 3 && cont1 <=9 || cont2 >= 3 && cont2 <=9) { 
+    //llamar a funcion  ganador o enviar mensaje de empate ---
+    if (cont1 >= 3 && cont1 <=9){ 
         ganador(); 
     } 
     if(cont1 >= 9 && gana == false || cont2 >= 9 && gana == false){ 
-        $("#juga").html("<h2>Empate.!!</h2>"); 
-        cont1 ++; 
+        $("#juga").html("Empate.!!");
+        cont1 ++;
         cont2 ++;
         turno = 3; 
     } 
- 
 } 
 //----------------------- Función para los mensajes y movimientos ----
 function ganador(){ 
@@ -103,9 +158,9 @@ function ganador(){
      (tablero[2]=="X" && tablero[5]=="X" && tablero[8]=="X") || 
      (tablero[0]=="X" && tablero[4]=="X" && tablero[8]=="X") || 
      (tablero[2]=="X" && tablero[4]=="X" && tablero[6]=="X")) { 
-        $("#juga").html("<h2>Ganó " + jugador1 + "</h2>");
+        $("#juga").html("<h3>Ganó " + jugador2 + "</h3>");
+        $(".one").html("<small>" + jugador2 + "</small>");
         $(".cont1").html("<span>" + cont1 + "</span>");
-        cont1 = cont1; 
         turno = 3; 
         gana = true; 
     }else if((tablero[0]=="O" && tablero[1]=="O" && tablero[2]=="O") || 
@@ -116,37 +171,13 @@ function ganador(){
      (tablero[2]=="O" && tablero[5]=="O" && tablero[8]=="O") || 
      (tablero[0]=="O" && tablero[4]=="O" && tablero[8]=="O") || 
      (tablero[2]=="O" && tablero[4]=="O" && tablero[6]=="O")) { 
-        $("#juga").html("<h2>Ganó " + jugador2 + "</h2>"); 
-        $(".cont2").html("<span>" + cont2 + "</span>");
-        cont2 = cont2; 
+        $("#juga").html("<h3>Ganó " + jugador1 + "</h3>");
+        $(".one").html("<small>" + jugador1 + "</small>");
+        $(".cont1").html("<span>" + cont2 + "</span>");
         turno = 3; 
         gana = true; 
     }
 }
-//-------- Funciones para pedir al servidor el historial de Ganadores ----
-function getHistorial() {
-	$.ajax({
-		url: 'http://test-ta.herokuapp.com/games'
-	}).done(function (_data) {
-		dibujarHistorial(_data);
-	});
-}
-function game(_idGame){
-    $.ajax({
-		url: 'http://test-ta.herokuapp.com/games/1' + _idGame
-	}).done(function (_data) {
-		console.log(_data);
-	});
-}
-
-function dibujarHistorial(_datos) {
-	//console.log(_datos);
-	var lista = $('#lista-juegos');
-
-	for (var i in _datos) {
-		console.log(_datos[i].winner_player);
-
-		var html = '<li data-idgame=id="' +_datos[i].id+ '" class="list-group-item">Ganador: ' + _datos[i].winner_player + '<button class="boton-comentar">ver<button></li>';
-		lista.append(html);
-	}
-}
+// falta  empate
+//--- falta enviar al servidor
+//-- falta diseño

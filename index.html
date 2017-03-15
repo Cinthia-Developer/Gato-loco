@@ -26,8 +26,8 @@
                     
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#inicio">Inicio</a></li>
-                            <li><a href="#historial" class="menu-historial">Historial</a></li>
+                            <li><a href="#" class="boton-iniciOne">Inicio</a></li>
+                            <li><a href="#" class="boton-historial">Historial</a></li>
                         </ul>
                     </div><!--cierre de collapse-->
                 </div><!--cierre de container-->
@@ -55,7 +55,8 @@
 
 <!----------------------- Tercera Pantalla ----------------------->       
         <section id="juego">
-            <div class="container content">
+            <div class="container margin">
+                <h2>Estas jugando el Gato Loco</h2>
                 <h2 id="juga">Turno de</h2>
                 <div class="caja-juego">
                     <table>
@@ -77,76 +78,31 @@
                     </table>
                 </div><!--cierre de caja-juego-->
                         
-                <p>Movimientos <small class="one">Jugador1</small>: <span class="cont1">0</span></p>
-                <p>Movimientos <small class="two">Jugador2</small>: <span class="cont2">0</span></p>
-                <button class="boton-juego">resultados</button>
+                <p>Movimientos <small class="one"></small>: <span class="cont1">0</span></p>
+                <button class="boton-juego">Mandar al historial</button>
             </div><!--cierre de container-->
         </section>
-        
 <!----------------------- Cuarta Pantalla ----------------------->       
-        <section id="resultados">
-            <div class="container content">
-                <h2 id="jugando">Turno de jugador</h2>
-                <div class="caja-juego">
-                    <table>
-                        <tr>
-                            <td id="c1" class="gato"> </td>
-                            <td id="c2" class="gato"> </td>
-                            <td id="c3" class="gato"> </td>
-                        </tr>
-                        <tr>
-                            <td id="c4" class="gato"> </td>
-                            <td id="c5" class="gato"> </td>
-                            <td id="c6" class="gato"> </td>
-                        </tr>
-                        <tr>
-                            <td id="c7" class="gato"> </td>
-                            <td id="c8" class="gato"></td>
-                            <td id="c9" class="gato"> </td>
-                        </tr>
-                    </table>
-                </div><!--cierre de caja-juego-->
-                        
-                <p>Movimientos <small>Jugador1</small>: <span>0</span></p>
-                <p>Movimientos <small>Jugador2</small>: <span>0</span></p>
-                
-                <div class="col-md-6">
-                    <h2>Gano <span>Ganador</span>!!</h2>
-                </div><!--cierre de la primera columna-->
-                <div class="col-md-6">
-                    <button class="boton-resultados">Mandar al Historial</button>
-                </div><!--cierre de la segunda columna-->
-            </div><!--cierre de container-->
-        </section>
-
-<!----------------------- Quinta Pantalla ----------------------->       
         <section id="historial">
-            <div class="container content">
+            <div class="container margin">
                 <h2>Historial</h2>
                 <ul id="lista-juegos">
                 </ul>
             </div><!--cierre de container-->
         </section>
         
-<!----------------------- Sexta Pantalla ----------------------->       
+<!----------------------- Quinta Pantalla ----------------------->       
         <section id="comentarios">
-            <div class="container content">
-                <h5>"<span>ganador</span> le gano a <span>perdedor en <span>0</span> movimientos</span>"</h5>
+            <div class="container margin">
                 <h3>Comentarios</h3>
-                <ul class="text-left">
-                    <li>
-                        <h4>Blanca dice: <br><small>LOL</small</h4>
-                    </li><!--cierre de primero-->
-                    <li>
-                        <h4>Andrea dice: <br><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium dolorum, quia vero doloribus delectus assumenda iure libero quasi id quisquam. Recusandae omnis doloremque odio eos suscipit labore, perferendis illum libero!</small</h4>
-                    </li><!--cierre de segundo-->
+                <ul class="text-left" id="lista-comentarios">
                 </ul>
                 <h3>Agregar Comentario</h3>
                 <label for="">Tu Nombre</label>
-                <input type="text" placeholder="Nombre"><br>
+                <input id="nombre" type="text" class="form-control" placeholder="Nombre">
                 <label for="">Tu Comentario</label>
-                <input type="text" placeholder="Escribe tu Comentario aquí"><br>
-                <button>Enviar</button>
+			    <textarea name="content" id="comentario" cols="30" rows="10" class="form-control" placeholder="Comentario"></textarea>
+                <button class="boton-enviar">Enviar</button>
             </div><!--cierre de container-->
         </section>
 

@@ -4,11 +4,12 @@ header{position: relative; z-index:100;}
 section{text-align: center; position: absolute; width:100%; height:100%; top:0; left:0; display: none; opacity:0;}
 .visible{opacity:1; display: table;}
 .content{display:table-cell; vertical-align: middle;}
+.margin{margin-top: 60px;}
 /*-------------------------- Primera Pantalla --------------------------*/
 #inicio h1{margin-bottom: 10%;}
 /*-------------------------- Segunda Pantalla --------------------------*/
 input{margin: 5px auto 20px; width: 250px; border: 2px solid #bec0c1; border-radius: 5px; text-align: center; height: 50px; padding: 10px;}
-/*-------------------------- Tercera  y Cuarta Pantalla --------------------------*/
+/*-------------------------- Tercera pantalla --------------------------*/
 .caja-juego{width: 100%; margin: auto;}
 table{margin: auto;}
 table td{border: 2px solid black;}
@@ -17,11 +18,10 @@ table td:last-child{border-right:none;}
 table tr:first-child td{border-top:none;}
 table tr:last-child td{border-bottom:none;}
 .gato{width: 80px; height: 80px; text-align: center; color: black;}
-/*-------------------------- Quinta Pantalla --------------------------*/
+/*-------------------------- Cuarta Pantalla --------------------------*/
 ul{list-style: none; padding-left: 0;}
-#historial li{width: 50%; margin: 10px auto; border: 2px solid black; padding: 10px;}
-.rigth{text-align: right;}
-/*-------------------------- Sexta Pantalla --------------------------*/
+#historial li{width: 90%; margin: 10px auto; border: 2px solid black; padding: 10px;}
+/*-------------------------- Quinta Pantalla --------------------------*/
 #comentarios li{width: 90%; border: 2px solid black; padding: 10px; margin: 10px auto;}
 
 /*-------------------------- @media--------------------------*/
