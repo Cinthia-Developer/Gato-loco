@@ -6,6 +6,7 @@ function init(){
 	$('.boton-inicio').click(onClickInicio);
     $('.boton-datos').click(onClickDatos);
     $('.boton-juego').click(onClickCreateNewPlayer);
+    $('.boton-juego').click(onClickHistorial);
     $('.boton-historial').click(onClickHistorial);
     $('.boton-iniciOne').click(onClickIniciOne);
     $('.boton-enviar').click(onClickSubmitComentario);
@@ -33,6 +34,7 @@ function onClickSubmitComentario(){
 }
 function onClickCreateNewPlayer(){
     enviarJuego($(".super-ganador").text(), $(".two").text(), $('.cont1').text());
+    
 }
 function onClickComentar(){
 	var idGame = $(this).parent().data('idgame');
