@@ -54,14 +54,14 @@ function nextSection(_id){
 //----------------- Sección de funciones que solicitan información al API ------------------
 function getHistorial(){
 	$.ajax({
-		url: 'http://test-ta.herokuapp.com/games'
+		url: 'https://test-ta.herokuapp.com/games'
 	}).done(function(_data){
 		dibujarHistorial(_data);
 	});
 }
 function getComentarios(_IdNewGame){
 	$.ajax({
-		url: 'http://test-ta.herokuapp.com/games/'+_IdNewGame+'/comments',
+		url: 'https://test-ta.herokuapp.com/games/'+_IdNewGame+'/comments',
 		type:'GET'
 	}).done(function(_data){
 		dibujarComentarios(_data);
@@ -70,7 +70,7 @@ function getComentarios(_IdNewGame){
 }
 function getSingleGame(_IdNewGame){
 	$.ajax({
-		url: 'http://test-ta.herokuapp.com/games/' + _IdNewGame,
+		url: 'https://test-ta.herokuapp.com/games/' + _IdNewGame,
 		type:'GET'
 	}).done(function(_data){
 	});
@@ -93,10 +93,10 @@ function dibujarHistorial(_datos){
 		list.append(newElement);
 	}
 }
-//-------------- Función para enviar el comentario al API ----
+//-------------- Funciones para enviar datos POST ----
 function enviarComentario(_idGame, _name, _content){
 	$.ajax({
-		url:'http://test-ta.herokuapp.com/games/'+_idGame+'/comments',
+		url:'https://test-ta.herokuapp.com/games/'+_idGame+'/comments',
 		type:'POST',
 		data:{comment:{ name:_name, content:_content, game_id:_idGame }}
 	}).done(function(_data){
@@ -105,7 +105,7 @@ function enviarComentario(_idGame, _name, _content){
 }
 function enviarJuego(_superGanador, _superPerdedor, _movimientosGanador){
 	$.ajax({
-		url:'http://test-ta.herokuapp.com/games',
+		url:'https://test-ta.herokuapp.com/games',
 		type:'POST',
 		data:{game: {
     winner_player: _superGanador,
@@ -142,7 +142,7 @@ function dibujar(evento){
         if(tablero[posicion] == "X" || tablero[posicion] == "O") { 
         }else{ 
             this.innerHTML = "X"; 
-            this.style.background="#7dcd40"; 
+            this.style.background="rgba(125, 205, 64, 0.79)"; 
             $("#juga").html("<span>Turno de: " + jugador1 + "</span>"); 
             tablero[posicion]="X"; 
             turno = 2;
@@ -152,7 +152,7 @@ function dibujar(evento){
         if (tablero[posicion] == "X" || tablero[posicion] == "O"){
         }else{ 
             this.innerHTML = "O"; 
-            this.style.background="#ff4842"; 
+            this.style.background="#ffe942"; 
             $("#juga").html("<span>Turno de: " + jugador2 + "</span>");
             tablero[posicion]="O"; 
             turno = 1; 
@@ -202,4 +202,3 @@ function ganador(){
         gana = true;
     }
 }
-//--- falta enviar al servidor
