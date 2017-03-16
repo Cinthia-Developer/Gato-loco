@@ -9,6 +9,7 @@ h4{font-size: 20px;}
 .visible{opacity:1; display: table;}
 .content{display:table-cell; vertical-align: middle;}
 .margin{margin-top: 70px;}
+.margin2{margin-top: 250px;}
 /*-------------------------- Menú --------------------------*/
 header img{display: inline; width: 50px; margin: 10px}
 header h3{display: inline;}
