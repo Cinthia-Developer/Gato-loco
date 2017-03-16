@@ -96,7 +96,7 @@ function dibujarHistorial(_datos){
 //-------------- Funciones para enviar datos POST ----
 function enviarComentario(_idGame, _name, _content){
 	$.ajax({
-		url:'https://test-ta.herokuapp.com/games/'+_idGame+'/comments',
+		url:'http://test-ta.herokuapp.com/games/'+_idGame+'/comments',
 		type:'POST',
 		data:{comment:{ name:_name, content:_content, game_id:_idGame }}
 	}).done(function(_data){
@@ -105,7 +105,7 @@ function enviarComentario(_idGame, _name, _content){
 }
 function enviarJuego(_superGanador, _superPerdedor, _movimientosGanador){
 	$.ajax({
-		url:'https://test-ta.herokuapp.com/games',
+		url:'http://test-ta.herokuapp.com/games',
 		type:'POST',
 		data:{game: {
     winner_player: _superGanador,
